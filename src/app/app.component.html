@@ -1,2 +1,39 @@
-<H1>Hello Word </H1>
-<button mat-button>Click</button>
+
+<mat-toolbar color="accent">
+    <button mat-icon-button class="example-icon" aria-label="Sidebar" (click)="showSidebar = !showSidebar">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <span> Application pour la gestion des devoirs  </span>
+    <span class="example-spacer"></span>
+    <div class="right-toolbar-content">
+        <button mat-icon-button class="example-icon" aria-label="Maison">
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Bouton d'identification">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+       
+    </div>
+  </mat-toolbar>
+
+  <mat-drawer-container class="example-container">
+
+    <mat-drawer #drawer class="example-sidenav" [opened]="showSidebar">
+      <ul>
+        <li><a mat-button routerLink="/liste_devoirs">Liste des devoirs</a></li>
+        <li><a mat-button routerLink="/Ajout_devoir">Ajout d'un devoir</a></li>
+        <li><a mat-button routerLink="/Modification_devoir">Modification d'un devoir</a></li>
+        <li><a mat-button routerLink="/Suppression_devoir">Suppression d'un devoir</a></li>
+        <li><a mat-button routerLink="/Generation_donnees_test">Génération des données de test</a></li>
+      </ul>
+    </mat-drawer>
+  
+    <mat-drawer-content class="content">
+       <app-assignments></app-assignments> 
+    </mat-drawer-content>
+
+</mat-drawer-container>
+  
+  
+
+
